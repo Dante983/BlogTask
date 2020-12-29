@@ -3,7 +3,7 @@
 <?php
 // Get all admin users from DB
 $admins = getAdminUsers();
-$roles = ['admin', 'Author'];
+$roles = ['Admin', 'Author'];
 ?>
 <?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
 <title>Admin | Manage users</title>
