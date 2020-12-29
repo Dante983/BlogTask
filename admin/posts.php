@@ -8,7 +8,6 @@
 <title>Admin | Manage Posts</title>
 </head>
 <body>
-<!-- admin navbar -->
 <?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
 
 <div class="container content">
@@ -17,7 +16,7 @@
 
     <!-- Display records from DB-->
     <div class="table-div"  style="width: 80%;">
-        <!-- Display notification message -->
+        <!-- ispis poruke -->
         <?php include(ROOT_PATH . '/admin/includes/messages.php') ?>
 
         <?php if (empty($posts)): ?>
@@ -49,7 +48,7 @@
                         </td>
                         <td><?php echo $post['views']; ?></td>
 
-                        <!-- Only Admin can publish/unpublish post -->
+                        <!-- samo admin moze objaviti i sakriti post!!! -->
                         <?php if ($_SESSION['user']['role'] == "Admin" ): ?>
                             <td>
                                 <?php if ($post['published'] == true): ?>
@@ -80,7 +79,7 @@
             </table>
         <?php endif ?>
     </div>
-    <!-- // Display records from DB -->
+    <!-- Display records from DB -->
 </div>
 </body>
 </html>

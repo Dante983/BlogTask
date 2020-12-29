@@ -1,29 +1,26 @@
 <?php  include('../config.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
 <?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
-<!-- Get all topics from DB -->
 <?php $topics = getAllTopics();	?>
 <title>Admin | Manage Topics</title>
 </head>
 <body>
-<!-- admin navbar -->
+
 <?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
 <div class="container content">
-    <!-- Left side menu -->
     <?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
 
-    <!-- Middle form - to create and edit -->
+    <!-- srednja forma za kreiranje -->
     <div class="action">
         <h1 class="page-title">Create/Edit Topics</h1>
         <form method="post" action="<?php echo BASE_URL . 'admin/topics.php'; ?>" >
-            <!-- validation errors for the form -->
             <?php include(ROOT_PATH . '/includes/errors.php') ?>
-            <!-- if editing topic, the id is required to identify that topic -->
+
             <?php if ($isEditingTopic === true): ?>
                 <input type="hidden" name="topic_id" value="<?php echo $topic_id; ?>">
             <?php endif ?>
             <input type="text" name="topic_name" value="<?php echo $topic_name; ?>" placeholder="Topic">
-            <!-- if editing topic, display the update button instead of create button -->
+
             <?php if ($isEditingTopic === true): ?>
                 <button type="submit" class="btn" name="update_topic">UPDATE</button>
             <?php else: ?>
@@ -31,11 +28,9 @@
             <?php endif ?>
         </form>
     </div>
-    <!-- // Middle form - to create and edit -->
+    <!-- // Middle form to create and edit -->
 
-    <!-- Display records from DB-->
     <div class="table-div">
-        <!-- Display notification message -->
         <?php include(ROOT_PATH . '/admin/includes/messages.php') ?>
         <?php if (empty($topics)): ?>
             <h1>No topics in the database.</h1>
@@ -67,7 +62,7 @@
             </table>
         <?php endif ?>
     </div>
-    <!-- // Display records from DB -->
+    <!-- Display records from DB -->
 </div>
 </body>
 </html>

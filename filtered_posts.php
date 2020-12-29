@@ -2,7 +2,6 @@
 <?php include('includes/public_functions.php'); ?>
 <?php include('includes/head_section.php'); ?>
 <?php
-// Get posts under a particular topic
 if (isset($_GET['topic'])) {
     $topic_id = $_GET['topic'];
     $posts = getPublishedPostsByTopic($topic_id);
@@ -12,9 +11,7 @@ if (isset($_GET['topic'])) {
 </head>
 <body>
 <div class="container">
-    <!-- Navbar -->
     <?php include( ROOT_PATH . '/includes/navbar.php'); ?>
-    <!-- // Navbar -->
     <!-- content -->
     <div class="content">
         <h2 class="content-title">
@@ -36,10 +33,6 @@ if (isset($_GET['topic'])) {
             </div>
         <?php endforeach ?>
     </div>
-    <!-- // content -->
 </div>
-<!-- // container -->
 
-<!-- Footer -->
 <?php include( ROOT_PATH . '/includes/footer.php'); ?>
-<!-- // Footer -->

@@ -1,7 +1,6 @@
 <?php  include('../config.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
 <?php
-// Get all admin users from DB
 $admins = getAdminUsers();
 $roles = ['Admin', 'Author'];
 ?>
@@ -20,7 +19,6 @@ $roles = ['Admin', 'Author'];
 
         <form method="post" action="<?php echo 'users.php'; ?>" >
 
-            <!-- validation errors for the form -->
             <?php include(ROOT_PATH . '/includes/errors.php') ?>
 
             <!-- if editing user, the id is required to identify that user -->
@@ -47,11 +45,9 @@ $roles = ['Admin', 'Author'];
             <?php endif ?>
         </form>
     </div>
-    <!-- // Middle form - to create and edit -->
 
-    <!-- Display records from DB-->
+    <!-- Display users from db-->
     <div class="table-div">
-        <!-- Display notification message -->
         <?php include(ROOT_PATH . '/admin/includes/messages.php') ?>
 
         <?php if (empty($admins)): ?>
@@ -89,7 +85,6 @@ $roles = ['Admin', 'Author'];
             </table>
         <?php endif ?>
     </div>
-    <!-- // Display records from DB -->
 </div>
 </body>
 </html>

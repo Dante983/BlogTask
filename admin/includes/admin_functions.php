@@ -13,9 +13,7 @@ $topic_id = 0;
 $isEditingTopic = false;
 $topic_name = "";
 
-/* - - - - - - - - - -
--  admin users actions
-- - - - - - - - - - -*/
+//admin users actions
 // if user clicks the create admin button
 if (isset($_POST['create_admin'])) {
     createAdmin($_POST);
@@ -36,9 +34,7 @@ if (isset($_GET['delete-admin'])) {
     deleteAdmin($admin_id);
 }
 
-/* - - - - - - - - - -
--  Topic actions
-- - - - - - - - - - -*/
+//Topic actions
 // if user clicks the create topic button
 if (isset($_POST['create_topic'])) { createTopic($_POST); }
 // if user clicks the Edit topic button
@@ -57,14 +53,8 @@ if (isset($_GET['delete-topic'])) {
     deleteTopic($topic_id);
 }
 
-/* - - - - - - - - - - - -
--  admin users functions
-- - - - - - - - - - - - -*/
-/* * * * * * * * * * * * * * * * * * * * * * *
-* - Receives new admin data from form
-* - Create new admin user
-* - Returns all admin users with their roles
-* * * * * * * * * * * * * * * * * * * * * * */
+
+//admin users functions
 function createAdmin($request_values){
     global $conn, $errors, $role, $username, $email;
     $username = esc($request_values['username']);
@@ -76,10 +66,10 @@ function createAdmin($request_values){
         $role = esc($request_values['role']);
     }
     // form validation: ensure that the form is correctly filled
-    if (empty($username)) { array_push($errors, "Uhmm...We gonna need the username"); }
-    if (empty($email)) { array_push($errors, "Oops.. Email is missing"); }
+    if (empty($username)) { array_push($errors, "Need the username"); }
+    if (empty($email)) { array_push($errors, "Email is missing"); }
     if (empty($role)) { array_push($errors, "Role is required for admin users");}
-    if (empty($password)) { array_push($errors, "uh-oh you forgot the password"); }
+    if (empty($password)) { array_push($errors, "You forgot the password"); }
     if ($password != $passwordConfirmation) { array_push($errors, "The two passwords do not match"); }
     // Ensure that no user is registered twice.
     // the email and usernames should be unique
@@ -108,11 +98,7 @@ function createAdmin($request_values){
         exit(0);
     }
 }
-/* * * * * * * * * * * * * * * * * * * * *
-* - Takes admin id as parameter
-* - Fetches the admin from database
-* - sets admin fields on form for editing
-* * * * * * * * * * * * * * * * * * * * * */
+
 function editAdmin($admin_id)
 {
     global $conn, $username, $role, $isEditingUser, $admin_id, $email;
@@ -126,9 +112,7 @@ function editAdmin($admin_id)
     $email = $admin['email'];
 }
 
-/* - - - - - - - - - -
--  Topics functions
-- - - - - - - - - - -*/
+
 // get all topics from DB
 function getAllTopics() {
     global $conn;
@@ -140,7 +124,6 @@ function getAllTopics() {
 function createTopic($request_values){
     global $conn, $errors, $topic_name;
     $topic_name = esc($request_values['topic_name']);
-    // create slug: if topic is "Life Advice", return "life-advice" as slug
     $topic_slug = makeSlug($topic_name);
     // validate form
     if (empty($topic_name)) {
@@ -163,11 +146,7 @@ function createTopic($request_values){
         exit(0);
     }
 }
-/* * * * * * * * * * * * * * * * * * * * *
-* - Takes topic id as parameter
-* - Fetches the topic from database
-* - sets topic fields on form for editing
-* * * * * * * * * * * * * * * * * * * * * */
+
 function editTopic($topic_id) {
     global $conn, $topic_name, $isEditingTopic, $topic_id;
     $sql = "SELECT * FROM topics WHERE id=$topic_id LIMIT 1";
@@ -180,13 +159,12 @@ function updateTopic($request_values) {
     global $conn, $errors, $topic_name, $topic_id;
     $topic_name = esc($request_values['topic_name']);
     $topic_id = esc($request_values['topic_id']);
-    // create slug: if topic is "Life Advice", return "life-advice" as slug
     $topic_slug = makeSlug($topic_name);
     // validate form
     if (empty($topic_name)) {
         array_push($errors, "Topic name required");
     }
-    // register topic if there are no errors in the form
+
     if (count($errors) == 0) {
         $query = "UPDATE topics SET name='$topic_name', slug='$topic_slug' WHERE id=$topic_id";
         mysqli_query($conn, $query);
@@ -196,6 +174,7 @@ function updateTopic($request_values) {
         exit(0);
     }
 }
+
 // delete topic
 function deleteTopic($topic_id) {
     global $conn;
@@ -207,9 +186,6 @@ function deleteTopic($topic_id) {
     }
 }
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-* - Receives admin request from form and updates in database
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 function updateAdmin($request_values){
     global $conn, $errors, $role, $username, $isEditingUser, $admin_id, $email;
     // get id of the admin to be updated
@@ -227,7 +203,7 @@ function updateAdmin($request_values){
     }
     // register user if there are no errors in the form
     if (count($errors) == 0) {
-        //encrypt the password (security purposes)
+        //encrypt the password
         $password = md5($password);
 
         $query = "UPDATE users SET username='$username', email='$email', role='$role', password='$password' WHERE id=$admin_id";
@@ -250,9 +226,6 @@ function deleteAdmin($admin_id) {
 }
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-* - Returns all admin users and their corresponding roles
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 function getAdminUsers(){
     global $conn, $roles;
     $sql = "SELECT * FROM users WHERE role IS NOT NULL";
@@ -261,19 +234,14 @@ function getAdminUsers(){
 
     return $users;
 }
-/* * * * * * * * * * * * * * * * * * * * *
-* - Escapes form submitted value, hence, preventing SQL injection
-* * * * * * * * * * * * * * * * * * * * * */
+
 function esc(String $value){
-    // bring the global db connect object into function
     global $conn;
-    // remove empty space sorrounding string
     $val = trim($value);
     $val = mysqli_real_escape_string($conn, $value);
     return $val;
 }
-// Receives a string like 'Some Sample String'
-// and returns 'some-sample-string'
+
 function makeSlug(String $string){
     $string = strtolower($string);
     $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $string);

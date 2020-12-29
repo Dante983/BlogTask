@@ -7,7 +7,7 @@
 	if (!$conn) {
 		die("Error connecting to database: " . mysqli_connect_error());
 	}
-    // define global constants
+    // definisi globalne konstante
         define ('ROOT_PATH', '/Users/nikolasavic/BlogTask/');
         define('BASE_URL', 'http://blog.local.com/');
 ?>

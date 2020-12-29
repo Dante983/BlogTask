@@ -22,8 +22,6 @@
         </form>
     </div>
 </div>
-<!-- // container -->
 
 <!-- Footer -->
 <?php include( ROOT_PATH . '/includes/footer.php'); ?>
-<!-- // Footer -->

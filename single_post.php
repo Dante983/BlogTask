@@ -13,12 +13,9 @@ $topics = getAllTopics();
 <div class="container">
     <!-- Navbar -->
     <?php include( ROOT_PATH . '/includes/navbar.php'); ?>
-    <!-- // Navbar -->
 
     <div class="content" >
-        <!-- Page wrapper -->
         <div class="post-wrapper">
-            <!-- full post div -->
             <div class="full-post-div">
                 <?php if ($post['published'] == false): ?>
                     <h2 class="post-title">Sorry... This post has not been published</h2>
@@ -29,14 +26,8 @@ $topics = getAllTopics();
                     </div>
                 <?php endif ?>
             </div>
-            <!-- // full post div -->
-
-            <!-- comments section -->
-            <!--  coming soon ...  -->
         </div>
-        <!-- // Page wrapper -->
 
-        <!-- post sidebar -->
         <div class="post-sidebar">
             <div class="card">
                 <div class="card-header">
@@ -52,9 +43,7 @@ $topics = getAllTopics();
                 </div>
             </div>
         </div>
-        <!-- // post sidebar -->
     </div>
 </div>
-<!-- // content -->
 
 <?php include( ROOT_PATH . '/includes/footer.php'); ?>

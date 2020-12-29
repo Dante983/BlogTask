@@ -1,9 +1,6 @@
 <?php
-/* * * * * * * * * * * * * * *
-* Returns all published posts
-* * * * * * * * * * * * * * */
 function getPublishedPosts() {
-    // use global $conn object in function
+    // koristitit global $conn objekat u funkciji!
     global $conn;
     $sql = "SELECT * FROM posts WHERE published=true";
     $result = mysqli_query($conn, $sql);
@@ -19,9 +16,6 @@ function getPublishedPosts() {
     return $final_posts;
 }
 
-/* * * * * * * * * * * * * * *
-* Returns a single post
-* * * * * * * * * * * * * * */
 function getPost($slug){
     global $conn;
     // Get single post slug
@@ -29,7 +23,6 @@ function getPost($slug){
     $sql = "SELECT * FROM posts WHERE slug='$post_slug' AND published=true";
     $result = mysqli_query($conn, $sql);
 
-    // fetch query results as associative array.
     $post = mysqli_fetch_assoc($result);
     if ($post) {
         // get the topic to which this post belongs
@@ -37,9 +30,7 @@ function getPost($slug){
     }
     return $post;
 }
-/* * * * * * * * * * * *
-*  Returns all topics
-* * * * * * * * * * * * */
+
 function getAllTopics()
 {
     global $conn;
@@ -49,10 +40,6 @@ function getAllTopics()
     return $topics;
 }
 
-/* * * * * * * * * * * * * * *
-* Receives a post id and
-* Returns topic of the post
-* * * * * * * * * * * * * * */
 function getPostTopic($post_id){
     global $conn;
     $sql = "SELECT * FROM topics WHERE id=
@@ -62,9 +49,6 @@ function getPostTopic($post_id){
     return $topic;
 }
 
-/* * * * * * * * * * * * * * * *
-* Returns all posts under a topic
-* * * * * * * * * * * * * * * * */
 function getPublishedPostsByTopic($topic_id) {
     global $conn;
     $sql = "SELECT * FROM posts ps 
@@ -73,7 +57,7 @@ function getPublishedPostsByTopic($topic_id) {
 				WHERE pt.topic_id=$topic_id GROUP BY pt.post_id 
 				HAVING COUNT(1) = 1)";
     $result = mysqli_query($conn, $sql);
-    // fetch all posts as an associative array called $posts
+
     $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     $final_posts = array();
@@ -83,9 +67,7 @@ function getPublishedPostsByTopic($topic_id) {
     }
     return $final_posts;
 }
-/* * * * * * * * * * * * * * * *
-* Returns topic name by topic id
-* * * * * * * * * * * * * * * * */
+
 function getTopicNameById($id)
 {
     global $conn;

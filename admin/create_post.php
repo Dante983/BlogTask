@@ -2,26 +2,25 @@
 <?php  include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
 <?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
-<!-- Get all topics -->
+
 <?php $topics = getAllTopics();	?>
 <title>Admin | Create Post</title>
 </head>
 <body>
-<!-- admin navbar -->
+
 <?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
 
 <div class="container content">
     <!-- Left side menu -->
     <?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
 
-    <!-- Middle form - to create and edit  -->
+    <!-- Middle form, create and edit  -->
     <div class="action create-post-div">
         <h1 class="page-title">Create/Edit Post</h1>
         <form method="post" enctype="multipart/form-data" action="<?php echo BASE_URL . 'admin/create_post.php'; ?>" >
-            <!-- validation errors for the form -->
+            <!-- provjera gresaka -->
             <?php include(ROOT_PATH . '/includes/errors.php') ?>
 
-            <!-- if editing post, the id is required to identify that post -->
             <?php if ($isEditingPost === true): ?>
                 <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
             <?php endif ?>
@@ -61,7 +60,6 @@
             <?php else: ?>
                 <button type="submit" class="btn" name="create_post">Save Post</button>
             <?php endif ?>
-
         </form>
     </div>
     <!-- // Middle form - to create and edit -->
