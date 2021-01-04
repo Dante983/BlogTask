@@ -4,24 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea63b816-8343-44db-8ae3-82097ba80c89" name="Default Changelist" comment="Updated users.php">
+    <list default="true" id="ea63b816-8343-44db-8ae3-82097ba80c89" name="Default Changelist" comment="Reworked code comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/create_post.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/create_post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/admin_functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/admin_functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/post_functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/post_functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/posts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/topics.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/topics.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filtered_posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/filtered_posts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/navbar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/public_functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/public_functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/registration_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/registration_login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/single_post.php" beforeDir="false" afterPath="$PROJECT_DIR$/single_post.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +65,7 @@
       <updated>1608555250494</updated>
       <workItem from="1608555252925" duration="11005000" />
       <workItem from="1608836442781" duration="3877000" />
-      <workItem from="1608994385521" duration="17033000" />
+      <workItem from="1608994385521" duration="22135000" />
     </task>
     <task id="LOCAL-00001" summary="Updated users.php">
       <created>1609245727888</created>
@@ -87,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609245727888</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Reworked code comments">
+      <created>1609256508437</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609256508437</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,6 +89,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated users.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated users.php" />
+    <MESSAGE value="Reworked code comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reworked code comments" />
   </component>
 </project>

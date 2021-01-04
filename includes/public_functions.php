@@ -31,6 +31,17 @@ function getPost($slug){
     return $post;
 }
 
+function debug($value)
+{
+    echo '<pre>';
+
+    print_r($value);
+
+    echo '</pre>';
+
+    die();
+}
+
 function getAllTopics()
 {
     global $conn;

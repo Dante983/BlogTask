@@ -76,14 +76,16 @@ if (isset($_POST['login_btn'])) {
             $reg_user_id = mysqli_fetch_assoc($result)['id'];
             $_SESSION['user'] = getUserById($reg_user_id);
 
-            // ili ovdje
+            // ili ovdje Admin
             // if user is admin, redirect to admin area
-            if ( in_array($_SESSION['user']['role'], ["admin", "Author"])) {
+            if ( $_SESSION['user']['role'] == 'Admin') {
+
                 $_SESSION['message'] = "You are now logged in";
                 // redirect to admin area
                 header('location: ' . BASE_URL . '/admin/dashboard.php');
                 exit(0);
             } else {
+
                 $_SESSION['message'] = "You are now logged in";
                 // redirect to public area
                 header('location: index.php');
@@ -94,14 +96,14 @@ if (isset($_POST['login_btn'])) {
         }
     }
 }
-// escape value from form
+// escape value from form $value = '   asdasd ';
 function esc(String $value)
 {
     // bring the global db connect object into function
     global $conn;
 
-    $val = trim($value);
-    $val = mysqli_real_escape_string($conn, $value);
+    $val = trim($value); // $val = 'asdasd';
+    $val = mysqli_real_escape_string($conn, $val); // $val = '   asdasd ';
 
     return $val;
 }
