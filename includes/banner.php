@@ -14,19 +14,11 @@
                 We’re all going to die. <br>
                 <span>~ Morty</span>
             </p>
-            <a href="register.php" class="btn">Join us!</a>
         </div>
 
-        <div class="login_div">
-            <form action="<?php echo 'index.php'; ?>" method="post" >
-                <h2>Login</h2>
-                <div style="width: 60%; margin: 0px auto;">
-                    <?php include(ROOT_PATH . '/includes/errors.php') ?>
-                </div>
-                <input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username">
-                <input type="password" name="password"  placeholder="Password">
-                <button class="btn" type="submit" name="login_btn">Sign in</button>
-            </form>
+        <div class="login_div" style="width: 150px; padding-top: 230px; padding-left: 300px">
+            <a href="register.php" class="btn">Join us!</a>
+            <a href="login.php" class="btn">Log in!</a>
         </div>
     </div>
 <?php } ?>

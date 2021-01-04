@@ -42,7 +42,6 @@
                 </a>
             </div>
         <?php endforeach ?>
-
     </div>
 
     <!-- footer -->
